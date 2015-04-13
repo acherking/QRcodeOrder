@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 #There is a problem with coffee-script-source 1.9.0 running on windows
 gem 'coffee-script-source', '1.8.0'
+gem 'bootstrap-sass', '2.0.4' 
+gem 'thin'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
