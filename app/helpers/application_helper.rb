@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ApplicationHelper
   #Returns the full title on per-page basis.
   def full_title(page_title)
