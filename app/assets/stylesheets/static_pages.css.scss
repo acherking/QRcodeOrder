@@ -2,3 +2,316 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
+
+/* universal */
+.ax_shape {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  color:#333333;
+  text-align:center;
+  line-height:normal;
+}
+.ax_paragraph {
+  font-family:'Arial Normal', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  color:#333333;
+  text-align:left;
+  line-height:normal;
+}
+.ax_h1 {
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-style:normal;
+  font-size:32px;
+  color:#333333;
+  text-align:left;
+  line-height:normal;
+}
+.ax_h2 {
+  font-family:'Arial Negreta', 'Arial';
+  font-weight:700;
+  font-style:normal;
+  font-size:24px;
+  color:#333333;
+  text-align:left;
+  line-height:normal;
+}
+
+/* header */
+#base {
+  position:absolute;
+  z-index:0;
+}
+#u1 {
+  position:absolute;
+  left:4px;
+  top:3px;
+  width:269px;
+  height:34px;
+  font-family:'华文新魏 Regular', '华文新魏';
+  font-weight:400;
+  font-style:normal;
+  color:#666666;
+}
+#u1_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:269px;
+  height:34px;
+}
+#u2 {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:269px;
+  white-space:nowrap;
+}
+#u3 {
+  position:absolute;
+  left:277px;
+  top:5px;
+  width:40px;
+  height:30px;
+  font-family:'方正舒体 Regular', '方正舒体';
+  font-weight:400;
+  font-style:normal;
+  font-size:16px;
+  color:#666666;
+}
+#u3_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:40px;
+  height:30px;
+}
+#u4 {
+  position:absolute;
+  left:2px;
+  top:6px;
+  width:36px;
+  word-wrap:break-word;
+}
+
+/* homePage */
+#u68 {
+  position:absolute;
+  left:154px;
+  top:83px;
+  width:146px;
+  height:71px;
+  font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
+  font-weight:700;
+  font-style:normal;
+  font-size:20px;
+  color:#666666;
+}
+#u68_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:146px;
+  height:71px;
+}
+#u69 {
+  position:absolute;
+  left:2px;
+  top:16px;
+  width:142px;
+  word-wrap:break-word;
+}
+#u70 {
+  position:absolute;
+  left:24px;
+  top:65px;
+  width:130px;
+  height:90px;
+  font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
+  font-weight:700;
+  font-style:normal;
+  font-size:20px;
+  color:#666666;
+}
+#u70_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:130px;
+  height:90px;
+}
+#u71 {
+  position:absolute;
+  left:2px;
+  top:25px;
+  width:126px;
+  word-wrap:break-word;
+}
+#u72 {
+  position:absolute;
+  left:154px;
+  top:154px;
+  width:132px;
+  height:59px;
+  font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
+  font-weight:700;
+  font-style:normal;
+  font-size:20px;
+  color:#666666;
+}
+#u72_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:132px;
+  height:59px;
+}
+#u73 {
+  position:absolute;
+  left:2px;
+  top:10px;
+  width:128px;
+  word-wrap:break-word;
+}
+#u74 {
+  position:absolute;
+  left:154px;
+  top:213px;
+  width:116px;
+  height:50px;
+  font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
+  font-weight:700;
+  font-style:normal;
+  font-size:20px;
+  color:#666666;
+}
+#u74_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:116px;
+  height:50px;
+}
+#u75 {
+  position:absolute;
+  left:2px;
+  top:5px;
+  width:112px;
+  word-wrap:break-word;
+}
+#u76 {
+  position:absolute;
+  left:54px;
+  top:155px;
+  width:100px;
+  height:44px;
+  font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
+  font-weight:700;
+  font-style:normal;
+  font-size:20px;
+  color:#666666;
+}
+#u76_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:100px;
+  height:44px;
+}
+#u77 {
+  position:absolute;
+  left:2px;
+  top:2px;
+  width:96px;
+  word-wrap:break-word;
+}
+#u78 {
+  position:absolute;
+  left:154px;
+  top:263px;
+  width:70px;
+  height:40px;
+  font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
+  font-weight:700;
+  font-style:normal;
+  font-size:20px;
+  color:#666666;
+}
+#u78_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:70px;
+  height:40px;
+}
+#u79 {
+  position:absolute;
+  left:2px;
+  top:0px;
+  width:66px;
+  word-wrap:break-word;
+}
+#u80 {
+  position:absolute;
+  left:43px;
+  top:199px;
+  width:111px;
+  height:80px;
+  font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
+  font-weight:700;
+  font-style:normal;
+  font-size:20px;
+  color:#666666;
+}
+#u80_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:111px;
+  height:80px;
+}
+#u81 {
+  position:absolute;
+  left:2px;
+  top:20px;
+  width:107px;
+  word-wrap:break-word;
+}
+#u82 {
+  position:absolute;
+  left:84px;
+  top:279px;
+  width:70px;
+  height:40px;
+  font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
+  font-weight:700;
+  font-style:normal;
+  font-size:20px;
+  color:#666666;
+}
+#u82_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:70px;
+  height:40px;
+}
+#u83 {
+  position:absolute;
+  left:2px;
+  top:0px;
+  width:66px;
+  word-wrap:break-word;
+}
+
+/* miscellaneous */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 350px;
+}
