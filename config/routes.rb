@@ -1,5 +1,9 @@
 # -*- encoding : utf-8 -*-
 QRcodeOrder::Application.routes.draw do
+  resources :foods
+
+  resources :food_types
+
   #get "static_pages/home"
   root 'static_pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
