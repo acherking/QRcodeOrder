@@ -1,20 +1,15 @@
 <div id="base" class="">
-	<!-- Unnamed (Header) -->
 
-    <!-- Unnamed (Shape) -->
-    <div id="u1" class="ax_h1">
-    	<img id="u1_img" class="img " src="/images/home_page/u1.png"/>
-        <!-- Unnamed () -->
-        <div id="u2" class="text">
-         	<p><span>117号车酷酒吧烧烤</span></p>
-        </div>
-    </div>
+	<div id="u1" class="ax_h1">
+      	<%= link_to  root_path do %>
+  		<%= image_tag("/images/home_page/u1.png", id: "u1_img", class: "img") %>
+		<span id="u2", class="text">117号车酷酒吧烧烤</span>
+		<% end %>
+      </div>
 
-    <!-- Unnamed (Shape) -->
-    <div id="u3" class="ax_shape">
-    	<img id="u3_img" class="img " src="/images/home_page/u3.png"/>
-        <!-- Unnamed () -->
-        <div id="u4" class="text">
-        	<p><span>菜单</span></p>
-        </div>
-     </div>
+	<div id="u3" class="ax_shape">
+      	<%= link_to  '#' do %>
+  		<%= image_tag("/images/home_page/u3.png", id: "u3_img", class: "img") %>
+		<span id="u4", class="text">菜单</span>
+		<% end %>
+      </div>

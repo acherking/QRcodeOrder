@@ -102,7 +102,7 @@
 #u68 {
   position:absolute;
   left:154px;
-  top:83px;
+  top:75px;
   width:146px;
   height:71px;
   font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
@@ -128,7 +128,7 @@
 #u70 {
   position:absolute;
   left:24px;
-  top:65px;
+  top:57px;
   width:130px;
   height:90px;
   font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
@@ -154,7 +154,7 @@
 #u72 {
   position:absolute;
   left:154px;
-  top:154px;
+  top:146px;
   width:132px;
   height:59px;
   font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
@@ -180,7 +180,7 @@
 #u74 {
   position:absolute;
   left:154px;
-  top:213px;
+  top:205px;
   width:116px;
   height:50px;
   font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
@@ -205,8 +205,8 @@
 }
 #u76 {
   position:absolute;
-  left:54px;
-  top:155px;
+  left:154px;
+  top:255px;
   width:100px;
   height:44px;
   font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
@@ -232,7 +232,7 @@
 #u78 {
   position:absolute;
   left:154px;
-  top:263px;
+  top:299px;
   width:70px;
   height:40px;
   font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
@@ -258,7 +258,7 @@
 #u80 {
   position:absolute;
   left:43px;
-  top:199px;
+  top:195px;
   width:111px;
   height:80px;
   font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
@@ -284,7 +284,7 @@
 #u82 {
   position:absolute;
   left:84px;
-  top:279px;
+  top:275px;
   width:70px;
   height:40px;
   font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
@@ -307,11 +307,37 @@
   width:66px;
   word-wrap:break-word;
 }
+#u84 {
+  position:absolute;
+  left:50px;
+  top:147px;
+  width:104px;
+  height:48px;
+  font-family:'Adobe 仿宋 Std R Bold', 'Adobe 仿宋 Std';
+  font-weight:700;
+  font-style:normal;
+  font-size:20px;
+  color:#666666;
+}
+#u84_img {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:104px;
+  height:48px;
+}
+#u85 {
+  position:absolute;
+  left:2px;
+  top:4px;
+  width:100px;
+  word-wrap:break-word;
+}
 
 /* miscellaneous */
 .debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 350px;
+  position:absolute;
+  left:400px;
+  top:50px;
+  width: 60%;
 }
