@@ -1,9 +1,22 @@
+<% provide(:title, @food_type.name) %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @food_type.name %>
-</p>
-
-<%= link_to 'Edit', edit_food_type_path(@food_type) %> |
-<%= link_to 'Back', food_types_path %>
+<div id="u99">
+  <table>
+  	<tbody>
+    	<% @foods.each do |food| %>
+      	<tr>
+ 	      <th>
+  		   <div id="u100_img">
+ 	     	<%= link_to  '#' do %>
+  			<%= image_tag("/images/chatacteristic_food/u99.png") %>
+			<div id="u100"><%= food.name %></div>
+			<% end %>
+      		</div>
+          </th>
+      	</tr>
+    	<% end %>
+  	</tbody>
+  </table>
+</div>
