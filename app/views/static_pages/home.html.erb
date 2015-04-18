@@ -1,7 +1,7 @@
 <% provide(:title, '服务主页') %>
 
  	  <div id="u68" class="ax_shape">
-      	<%= link_to  '#' do %>
+      	<%= link_to  @food_types.find_by_id(2) do %>
   		<%= image_tag("/images/home_page/u68.png", id: "u68_img", class: "img") %>
 		<span id="u69", class="text">经典烧烤系列</span>
 		<% end %>
@@ -15,35 +15,35 @@
       </div>
 	  
 	  <div id="u72" class="ax_shape">
-      	<%= link_to  '#' do %>
+      	<%= link_to  @food_types.find_by_id(3) do %>
   		<%= image_tag("/images/home_page/u72.png", id: "u72_img", class: "img") %>
 		<span id="u73", class="text">下酒凉菜系列</span>
 		<% end %>
       </div>
       
 	  <div id="u74" class="ax_shape">
-      	<%= link_to  '#' do %>
+      	<%= link_to  @food_types.find_by_id(5) do %>
   		<%= image_tag("/images/home_page/u74.png", id: "u74_img", class: "img") %>
 		<span id="u75", class="text">锡纸系列</span>
 		<% end %>
       </div>
 		
 	  <div id="u76" class="ax_shape">
-      	<%= link_to  '#' do %>
+      	<%= link_to  @food_types.find_by_id(4) do %>
   		<%= image_tag("/images/home_page/u76.png", id: "u76_img", class: "img") %>
 		<span id="u77", class="text">川菜</span>
 		<% end %>
       </div>
 
 	  <div id="u78" class="ax_shape">
-      	<%= link_to  '#' do %>
+      	<%= link_to  @food_types.find_by_id(6) do %>
   		<%= image_tag("/images/home_page/u78.png", id: "u78_img", class: "img") %>
 		<span id="u79", class="text">主食</span>
 		<% end %>
       </div>
 
 	  <div id="u80" class="ax_shape">
-      	<%= link_to  '#' do %>
+      	<%= link_to  @food_types.find_by_id(8) do %>
   		<%= image_tag("/images/home_page/u80.png", id: "u80_img", class: "img") %>
 		<span id="u81", class="text">饮料酒水</span>
 		<% end %>
@@ -57,7 +57,7 @@
       </div>
       
       <div id="u84" class="ax_shape">
-      	<%= link_to  '#' do %>
+      	<%= link_to  @food_types.find_by_id(7) do %>
   		<%= image_tag("/images/home_page/u84.png", id: "u84_img", class: "img") %>
 		<span id="u85", class="text">涮锅系列</span>
 		<% end %>

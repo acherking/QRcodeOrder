@@ -41,6 +41,126 @@ food_type_1_list = [
   [1, "机械增压肥羊腰", 12]
 ]
 
+food_type_2_list = [
+  [2, "羊肉串", 3],
+  [2, "牛肉串", 3],
+  [2, "牛肉筋", 3],
+  [2, "肥牛心管", 3],
+  [2, "肥牛板筋", 3],
+  [2, "肥牛亮筋", 3],
+  [2, "骨肉相连", 3],
+  [2, "肥牛筋皮", 3],
+  [2, "香辣鸡脖", 4],
+  [2, "烤土豆片", 2],
+  [2, "烤地瓜片", 2],
+  [2, "蚕蝇", 5],
+  [2, "风味脆骨", 3],
+  [2, "黑胡椒鸡翅", 8],
+  [2, "新奥尔良烤翅", 7],
+  [2, "V12带劲辣烤翅", 8],
+  [2, "蜜汁鸡翅", 8],
+  [2, "培根金针菇", 4],
+  [2, "香烤掌中宝", 3],
+  [2, "风味干豆腐卷", 10],
+  [2, "烤韭菜", 3],
+  [2, "农村辣椒", 3],
+  [2, "烤鳕鱼", 12]                    
+]
+
+food_type_3_list = [
+  [3, "素拍黄瓜", 12],
+  [3, "捞汁什锦", 18],
+  [3, "水憩肚", 24],
+  [3, "老醋双脆", 22],
+  [3, "牛肉老虎菜", 24],
+  [3, "蓝莓山药", 28],
+  [3, "木耳辣根", 10],
+  [3, "土豆丝", 12],
+  [3, "果仁菠菜", 12],
+  [3, "俄式酸黄瓜", 16],
+  [3, "117加油站", 28],
+  [3, "花生开合", 12],
+  [3, "水果沙拉", 24]
+]
+
+food_type_4_list = [
+  [4, "夫妻肺片", 35],
+  [4, "口水鸡", 32],
+  [4, "麻辣油麦菜", 18],
+  [4, "渝味凉粉", 18]
+]
+
+food_type_5_list = [
+  [5, "锡纸金针磨", 18],
+  [5, "锡纸大虾", 24],
+  [5, "锡纸土豆", 10]
+]
+
+food_type_6_list = [
+  [6, "嘎达汤", 5],
+  [6, "烤面包片", 2],
+  [6, "香烤臭夹馍", 3],
+]
+
+food_type_7_list = [
+  [7, "毛肚锅", 25],
+  [7, "牛肚", 1.5],
+  [7, "金针菇", 6],
+  [7, "木耳", 6],
+  [7, "干豆腐", 1],
+  [7, "鸡丸", 1.5],
+  [7, "青拼", 12],
+  [7, "酸菜", 7],
+  [7, "海带", 7],
+  [7, "水晶粉", 7],
+]
+
+food_type_8_list = [
+  [8, "雪碧", 5],
+  [8, "可乐", 5],
+  [8, "健力宝", 5],
+  [8, "荔枝", 5],
+  [8, "怡宝矿泉水", 4],
+  [8, "进口果汁", 38],
+  [8, "蓝莓汁", 28],
+  [8, "雪花银装", 10],
+  [8, "雪花纯生", 12],
+  [8, "花脸", 22],
+  [8, "花旦", 22],
+  [8, "凯撒黑啤", 38],
+  [8, "凯撒黄啤", 38],
+  [8, "凯撒窖藏", 42],
+  [8, "餐巾纸", 2]
+]
+
 food_type_1_list.each do |food_type_id, name, price|
+  Food.create(food_type_id: food_type_id, name: name, price: price)
+end
+
+food_type_2_list.each do |food_type_id, name, price|
+  Food.create(food_type_id: food_type_id, name: name, price: price)
+end
+
+food_type_3_list.each do |food_type_id, name, price|
+  Food.create(food_type_id: food_type_id, name: name, price: price)
+end
+
+food_type_4_list.each do |food_type_id, name, price|
+  Food.create(food_type_id: food_type_id, name: name, price: price)
+end
+
+food_type_5_list.each do |food_type_id, name, price|
+  Food.create(food_type_id: food_type_id, name: name, price: price)
+end
+
+food_type_6_list.each do |food_type_id, name, price|
+  Food.create(food_type_id: food_type_id, name: name, price: price)
+end
+
+food_type_7_list.each do |food_type_id, name, price|
+  Food.create(food_type_id: food_type_id, name: name, price: price)
+end
+
+food_type_8_list.each do |food_type_id, name, price|
   Food.create(food_type_id: food_type_id, name: name, price: price)
 end
