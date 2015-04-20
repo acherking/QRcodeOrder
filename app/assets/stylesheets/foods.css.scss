@@ -1,3 +1,23 @@
 // Place all the styles related to the Foods controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+//弹出框CSS
+#foodModal {
+  position:absolute;
+  left:8px;
+  top:15%;
+  margin:auto;
+  width:304px;
+}
+
+.modal-content {
+  background-color: rgba(255,204,0,0.5);
+}
+
+#add-to-dish {
+  position:relative;
+  top:5px;
+}
