@@ -7,6 +7,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Authentication.create(authentication_str: "88888888", table_id: 1)
+Table.create(name: "黑A 8888")
+
 food_type_list = [
   "车酷特色",
   "经典烧烤系列",

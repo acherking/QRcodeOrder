@@ -1,0 +1,31 @@
+<h1>Listing authentications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Authentication str</th>
+      <th>Table</th>
+      <th>Statu</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @authentications.each do |authentication| %>
+      <tr>
+        <td><%= authentication.authentication_str %></td>
+        <td><%= authentication.table_id %></td>
+        <td><%= authentication.statu %></td>
+        <td><%= link_to 'Show', authentication %></td>
+        <td><%= link_to 'Edit', edit_authentication_path(authentication) %></td>
+        <td><%= link_to 'Destroy', authentication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Authentication', new_authentication_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Menu:</strong>
+  <%= @little_menu.menu_id %>
+</p>
+
+<p>
+  <strong>Food:</strong>
+  <%= @little_menu.food_id %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @little_menu.number %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @little_menu.remark %>
+</p>
+
+<%= link_to 'Edit', edit_little_menu_path(@little_menu) %> |
+<%= link_to 'Back', little_menus_path %>

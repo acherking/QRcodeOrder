@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Authentication str:</strong>
+  <%= @authentication.authentication_str %>
+</p>
+
+<p>
+  <strong>Table:</strong>
+  <%= @authentication.table_id %>
+</p>
+
+<p>
+  <strong>Statu:</strong>
+  <%= @authentication.statu %>
+</p>
+
+<%= link_to 'Edit', edit_authentication_path(@authentication) %> |
+<%= link_to 'Back', authentications_path %>

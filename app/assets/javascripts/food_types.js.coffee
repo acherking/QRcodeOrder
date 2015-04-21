@@ -3,12 +3,24 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  
   $('.show-food').on 'click', (event) ->
     event.preventDefault()
     $('#foodModal').modal 'show'
     return
-    
+  return
+  
+$(document).on 'click', '.number-spinner span', ->
+  btn = $(this)
+  oldValue = btn.closest('.number-spinner').find('input').val().trim()
+  newVal = 0
+  if btn.attr('data-dir') == 'up'
+    newVal = parseInt(oldValue) + 1
+  else
+    if oldValue > 1
+      newVal = parseInt(oldValue) - 1
+    else
+      newVal = 1
+  btn.closest('.number-spinner').find('input').val newVal
   return
 
 # ---

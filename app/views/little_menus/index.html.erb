@@ -1,0 +1,33 @@
+<h1>Listing little_menus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Menu</th>
+      <th>Food</th>
+      <th>Number</th>
+      <th>Remark</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @little_menus.each do |little_menu| %>
+      <tr>
+        <td><%= little_menu.menu_id %></td>
+        <td><%= little_menu.food_id %></td>
+        <td><%= little_menu.number %></td>
+        <td><%= little_menu.remark %></td>
+        <td><%= link_to 'Show', little_menu %></td>
+        <td><%= link_to 'Edit', edit_little_menu_path(little_menu) %></td>
+        <td><%= link_to 'Destroy', little_menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Little menu', new_little_menu_path %>

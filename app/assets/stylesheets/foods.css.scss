@@ -17,7 +17,10 @@
   background-color: rgba(255,204,0,0.5);
 }
 
-#add-to-dish {
-  position:relative;
-  top:5px;
+.show-food-name-price{
+  text-align: center;
+
+  h4 {
+    line-height: 0.7em;
+  }
 }

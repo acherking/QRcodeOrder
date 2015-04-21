@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  authentication_str: MyString
+  table_id: 
+  statu: false
+
+two:
+  authentication_str: MyString
+  table_id: 
+  statu: false
