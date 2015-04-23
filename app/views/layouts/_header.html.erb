@@ -1,16 +1,33 @@
-<div id="base" class="">
-
 	<div id="u1" class="ax_h1">
-      	<%= link_to  root_path do %>
+   		<%= link_to  root_path do %>
   		<%= image_tag("/images/home_page/u1.png", id: "u1_img", class: "img") %>
 		<span id="u2", class="text">117号车酷酒吧烧烤</span>
 		<% end %>
-      </div>
+    </div>
 
-	<div id="u3" class="ax_shape">
-      	<%= link_to  '#' do %>
+	<div id="u3" class="ax_shape dropdown dropdown-accordion" data-accordion="#accordion">
+      <%= link_to  "/menus", remote: true, id: "show-menus-post-authentication", class: "menuDropdown", "data-toggle" => "dropdown", "data-target" => "#" do %>
   		<%= image_tag("/images/home_page/u3.png", id: "u3_img", class: "img") %>
-		<span id="u4", class="text">菜单</span>
-		<% end %>
-      </div>
-</div>
+		  <span id="u4", class="text">菜单</span>
+		  <% end %>
+		  <ul id="menus-dropdown" class="dropdown-menu dropdown-cart" role="menu" aria-labelledby="dLabel">
+    		  <div id="show-menus">
+    		  </div>
+  	  </ul>
+  </div>
+
+<script>
+// Collapse accordion every time dropdown is shown
+$('.dropdown-accordion').on('show.bs.dropdown', function (event) {
+  var accordion = $(this).find($(this).data('accordion'));
+  accordion.find('.panel-collapse.in').collapse('hide');
+});
+
+// Prevent dropdown to be closed when we click on an accordion link
+$('.dropdown-accordion').on('click', 'a[data-toggle="collapse"]', function (event) {
+  event.preventDefault();
+  event.stopPropagation();
+  $($(this).data('parent')).find('.panel-collapse.in').collapse('hide');
+  $($(this).attr('href')).collapse('show');
+})
+</script>

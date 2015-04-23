@@ -4,7 +4,31 @@ class MenusController < ApplicationController
   # GET /menus
   # GET /menus.json
   def index
-    @menus = Menu.all
+    @authentication = Authentication.find_by_authentication_str("88888888")
+    @menus = @authentication.menus.order(:updated_at)
+    @foods = Food.all
+    
+    l = @menus.length
+    if l
+      @menus_false = []
+      @little_menus_false = []
+      i = 0
+      while i < l do
+        if @menus[i].statu == false
+          @menus_false[i] = @menus[i]
+          @little_menus_false[i] = @menus[i].little_menus
+        else
+          @menus_true = @menus[i]
+          @little_menus_true = @menus[i].little_menus
+        end
+        i += 1
+      end    
+    end
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /menus/1

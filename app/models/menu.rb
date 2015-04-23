@@ -5,5 +5,4 @@ class Menu < ActiveRecord::Base
   has_many :little_menus
   
   validates :authentication_id, presence:true
-  validates :statu, presence:true
 end

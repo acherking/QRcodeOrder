@@ -4,7 +4,6 @@
 
 $ ->
     $('#add-to-menu').click ->
-      $('#foodModal').addClass 'hide'
       $.ajax({
         url: "http://localhost:3000/little_menus.json",
         type: "POST",

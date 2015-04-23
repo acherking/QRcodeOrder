@@ -1,0 +1,58 @@
+<li role="presentation" class="dropdown-header">已发送菜单</li>
+<div class="panel-group" id="accordion">
+  <% i = 0 %>
+  <% while i < @menus_false.length do %>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="panel-title">
+        <a class="btn", data-toggle="collapse" data-parent="#accordion" href="<%= "#collapse_" + i.to_s %>">
+        <%= "菜单" + (i+1).to_s %>
+        </a>
+      </span>
+    </div>
+    <div id="<%= "collapse_" + i.to_s %>" class="panel-collapse collapse">
+        <div class="panel-body">
+          <% j = 0 %>
+          <% while j < @little_menus_false[i].length %>
+          
+          <div>
+          <span ><%= @foods.find(@little_menus_false[i][j].food_id).name %></span>
+          <span>*<%= @little_menus_false[i][j].number %></span>
+          </div>
+
+          <% j += 1 %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+  
+  <% i += 1 %>
+  <% end %>
+<li class="divider"></li>
+<li role="presentation" class="dropdown-header">未发送菜单</li>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="panel-title">
+        <a class="btn", data-toggle="collapse" data-parent="#accordion" href="<%= "#collapse_" + i.to_s %>">
+        <%= "菜单" + (i+1).to_s %>
+        </a>
+      </span>
+    </div>
+    <div id="<%= "collapse_" + i.to_s %>" class="panel-collapse collapse in">
+        <div class="panel-body">
+          <% j = 0 %>
+          <% while j < @little_menus_true.length %>
+          
+          <div>
+          <span ><%= @foods.find(@little_menus_true[j].food_id).name %></span>
+          <span>*<%= @little_menus_true[j].number %></span>
+          </div>
+
+          <% j += 1 %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+<li class="divider"></li>
