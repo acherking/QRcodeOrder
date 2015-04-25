@@ -2,6 +2,8 @@ class Food < ActiveRecord::Base
   attr_accessible :name, :price, :food_type_id
   
   belongs_to :food_type
+  has_many :little_menus
+  belongs_to :little_menu
   
   validates :name, presence:true, length: { maximum: 50 }
   validates :price, presence:true

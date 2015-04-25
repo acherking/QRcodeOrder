@@ -1,0 +1,78 @@
+<li role="presentation" class="dropdown-header">已发送菜单</li>
+<div class="panel-group" id="accordion">
+<% if @menus_false.length %>
+  <% i = 0 %>
+  <% while i < @menus_false.length do %>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="panel-title">
+        <a class="btn", data-toggle="collapse" data-parent="#accordion" href="<%= "#collapse_" + i.to_s %>">
+        <%= "菜单" + (i+1).to_s %>
+        <span class="badge"><%= @little_menus_false[i].length %></span>
+        </a>
+      </span>
+    </div>
+    <div id="<%= "collapse_" + i.to_s %>" class="panel-collapse collapse">
+        <div class="panel-body">
+          <% j = 0 %>
+          <% while j < @little_menus_false[i].length %>
+          
+          <div>
+          <span data-span="stop"><%= @foods.find(@little_menus_false[i][j].food_id).name %></span>
+          <span data-span="stop">*<%= @little_menus_false[i][j].number %></span>
+          </div>
+
+          <% j += 1 %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+  
+  <% i += 1 %>
+  <% end %>
+<% end %>
+
+<li class="divider"></li>
+<li role="presentation" class="dropdown-header">未发送菜单</li>
+<% if @menus_true %>
+  <div id="little-menu-true", class="panel panel-default">
+    <div class="panel-heading">
+      <span class="panel-title">
+        <a class="btn", data-toggle="collapse" data-parent="#accordion" href="<%= "#collapse_" + i.to_s %>">
+        <%= "菜单" + (i+1).to_s %>
+        <span class="badge"><%= @little_menus_true.length %></span>
+        </a>
+      </span>
+    </div>
+    <div id="<%= "collapse_" + i.to_s %>" class="panel-collapse collapse in">
+        <div class="panel-body">
+          <% j = 0 %>
+          <% while j < @little_menus_true.length %>
+
+          <div id="<%= "little_menu_id_" + @little_menus_true[j].id.to_s %>" class="row-fluid">
+            <div class="span11 show-food">
+              <span data-span="stop"><%= @foods.find(@little_menus_true[j].food_id).name %></span>
+              <span data-span="stop">*<%= @little_menus_true[j].number %></span>
+            </div>
+            <div class="span1 show-food">
+              <%= button_to @little_menus_true[j], remote: true, "type" => "button", class: "close delete-little-menu", data: { little_menu_id: '#little_menu_id_'+@little_menus_true[j].id.to_s }, method: "delete" do%>
+              <span aria-hidden="true">&times;</span>
+              <% end %>
+            </div>
+          </div>
+
+          <% j += 1 %>
+          <% end %>
+        </div>
+        <div>
+          <%= form_for(@menus_true, remote: true, method: :put) do |f| %>
+          <%= f.hidden_field :statu, value: false%>
+          <%= f.submit("确认点餐", {id:"confirm-menu", class: "btn btn-mini btn-warning btn-block", data: {a: "stop"}}) %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+<% end %>
+</div>
+<li class="divider"></li>

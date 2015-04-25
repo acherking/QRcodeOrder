@@ -1,5 +1,13 @@
 # -*- encoding : utf-8 -*-
 QRcodeOrder::Application.routes.draw do
+  resources :tables
+
+  resources :authentications
+
+  resources :menus
+
+  resources :little_menus
+
   resources :foods
 
   resources :food_types

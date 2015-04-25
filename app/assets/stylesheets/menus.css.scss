@@ -1,0 +1,35 @@
+// Place all the styles related to the menus controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dropdown-accordion .panel-heading {
+  padding: 0;
+}
+.dropdown-accordion .panel-heading a {
+  display: block;
+  padding: 0;
+}
+
+//下拉菜单
+ul.dropdown-cart {
+    position: relative;
+    left: -155px;
+    width: 190px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.dropdown-accordion {
+  .close{
+    position: absolute;
+    right: 5px;
+  }
+  .show-food{
+   margin-bottom: -10px;
+  }
+  #confirm-menu{
+    margin-top: 5px;
+    margin-bottom: -20px;
+  }
+}

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415122333) do
+ActiveRecord::Schema.define(version: 20150420112030) do
+
+  create_table "authentications", force: true do |t|
+    t.string   "authentication_str"
+    t.integer  "table_id"
+    t.boolean  "statu",              default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "food_types", force: true do |t|
     t.string   "name"
@@ -26,6 +34,29 @@ ActiveRecord::Schema.define(version: 20150415122333) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "status",       default: true
+  end
+
+  create_table "little_menus", force: true do |t|
+    t.integer  "menu_id"
+    t.integer  "food_id"
+    t.integer  "number",     default: 0
+    t.string   "remark",     default: "None"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menus", force: true do |t|
+    t.integer  "authentication_id"
+    t.boolean  "statu",             default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tables", force: true do |t|
+    t.string   "name"
+    t.boolean  "statu",      default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

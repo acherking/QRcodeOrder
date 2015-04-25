@@ -1,19 +1,56 @@
-<p id="notice"><%= notice %></p>
+<div class="dropdown dropdown-accordion" data-accordion="#accordion">
+  <a data-toggle="dropdown" href="#" class="btn btn-primary">Dropdown trigger <span class="caret"></span></a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li>
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                Unit 1
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+              <a href="#">Item a</a><br>
+              <a href="#">Item b</a>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                Unit 2
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+              <a href="#">Item a</a><br>
+              <a href="#">Item b</a><br>
+              <a href="#">Item c</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
 
-<p>
-  <strong>Food type:</strong>
-  <%= @food.food_type_id %>
-</p>
+<script>
+// Collapse accordion every time dropdown is shown
+$('.dropdown-accordion').on('show.bs.dropdown', function (event) {
+  var accordion = $(this).find($(this).data('accordion'));
+  accordion.find('.panel-collapse.in').collapse('hide');
+});
 
-<p>
-  <strong>Name:</strong>
-  <%= @food.name %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @food.price %>
-</p>
-
-<%= link_to 'Edit', edit_food_path(@food) %> |
-<%= link_to 'Back', foods_path %>
+// Prevent dropdown to be closed when we click on an accordion link
+$('.dropdown-accordion').on('click', 'a[data-toggle="collapse"]', function (event) {
+  event.preventDefault();
+  event.stopPropagation();
+  $($(this).data('parent')).find('.panel-collapse.in').collapse('hide');
+  $($(this).attr('href')).collapse('show');
+})
+</script>

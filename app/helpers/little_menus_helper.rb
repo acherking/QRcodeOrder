@@ -1,0 +1,2 @@
+module LittleMenusHelper
+end

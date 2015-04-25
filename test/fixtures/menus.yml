@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  authentication_id: 1
+  statu: false
+
+two:
+  authentication_id: 1
+  statu: false
