@@ -11,13 +11,24 @@
 }
 
 //下拉菜单
-ul.dropdown-cart{
+ul.dropdown-cart {
     position: relative;
     left: -155px;
-    min-width: 190px;
-    max-width: 200px;
+    width: 190px;
     max-height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
+.dropdown-accordion {
+  .close{
+    position: absolute;
+    right: 5px;
+  }
+  .show-food{
+   margin-bottom: -10px;
+  }
+  #confirm-menu{
+    margin-top: 5px;
+  }
+}

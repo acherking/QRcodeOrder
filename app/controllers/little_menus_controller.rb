@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class LittleMenusController < ApplicationController
   before_action :set_little_menu, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token, :only => [:create]
+  skip_before_filter :verify_authenticity_token, :only => [:create, :destroy]
 
   # GET /little_menus
   # GET /little_menus.json

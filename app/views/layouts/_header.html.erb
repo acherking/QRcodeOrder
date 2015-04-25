@@ -30,4 +30,14 @@ $('.dropdown-accordion').on('click', 'a[data-toggle="collapse"]', function (even
   $($(this).data('parent')).find('.panel-collapse.in').collapse('hide');
   $($(this).attr('href')).collapse('show');
 })
+
+$('.dropdown-accordion').on('click', 'span[data-span="stop"], a[data-a="stop"]', function (event) {
+  event.preventDefault();
+  event.stopPropagation();
+})
+
+$('.dropdown-accordion').on('click', '.delete-little-menu', function (event) {
+  $($(this).data('little-menu-id')).addClass('hide');
+})
+
 </script>
