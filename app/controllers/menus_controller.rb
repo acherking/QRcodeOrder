@@ -52,8 +52,8 @@ class MenusController < ApplicationController
 
     respond_to do |format|
       if @menu.save
-        format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @menu }
+        format.html {}
+        format.json { head :no_content }
       else
         format.html { render action: 'new' }
         format.json { render json: @menu.errors, status: :unprocessable_entity }
@@ -66,7 +66,30 @@ class MenusController < ApplicationController
   def update
     respond_to do |format|
       if @menu.update(menu_params)
+        
+        @authentication = Authentication.find(@menu.authentication_id)
+        @menus = @authentication.menus.order(:updated_at)
+        @foods = Food.all
+    
+        l = @menus.length
+        if l
+          @menus_false = []
+          @little_menus_false = []
+          i = 0
+          while i < l do
+            if @menus[i].statu == false
+              @menus_false[i] = @menus[i]
+              @little_menus_false[i] = @menus[i].little_menus
+            else
+              @menus_true = @menus[i]
+              @little_menus_true = @menus[i].little_menus
+            end
+            i += 1
+          end    
+        end
+        
         format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
+        format.js {}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
