@@ -1,6 +1,5 @@
 class FoodTypesController < ApplicationController
   before_action :set_food_type, only: [:show, :edit, :update, :destroy]
-	before_action :valid_authentication, only: [:show]
 
   # GET /food_types
   # GET /food_types.json

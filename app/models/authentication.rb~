@@ -7,4 +7,5 @@ class Authentication < ActiveRecord::Base
   validates :authentication_str, presence:true, length: { maximum: 50 }
   validates_uniqueness_of :authentication_str
   validates :table_id, presence:true
+  validates :statu, presence:true
 end

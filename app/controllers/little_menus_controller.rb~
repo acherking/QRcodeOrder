@@ -2,7 +2,7 @@
 class LittleMenusController < ApplicationController
   before_action :set_little_menu, only: [:show, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token, :only => [:create, :destroy]
-	before_action :valid_authentication, only: [:create, :destroy]
+	before_action :valid_authenticaion, only: [:create, :destroy]
 
   # GET /little_menus
   # GET /little_menus.json

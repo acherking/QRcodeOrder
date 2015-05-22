@@ -9,6 +9,7 @@ $ ->
         type: "POST",
         data: {food_id: $("#food-id").text(), number: $("#food-number").val() },
         success:(data) ->
+            alert(data.id + "success")
             return false
           error:(data) ->
             return false

@@ -19,15 +19,4 @@ module AuthenticationsHelper
 		cookies.delete(:authentication_str)
 	end
 
-	def valid_authentication
-		current_authentication
-		if @current_authentication
-			if !@current_authentication.statu	
-				render 'static_pages/authentication_error'
-			end
-		else
-			render 'static_pages/authentication_error'
-		end
-	end
-
 end

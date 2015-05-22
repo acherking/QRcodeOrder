@@ -36,6 +36,7 @@
 
               <div class="hide">
                 <p6 id="food-id"></p6>
+                <p6 id="authentication-str">88888888</p6>
               </div>
 
               <div class="input-prepend input-append number-spinner">
