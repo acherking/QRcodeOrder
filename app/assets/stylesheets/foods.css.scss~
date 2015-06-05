@@ -16,7 +16,7 @@
     #food-number {
     	margin-top: -8px;
     	text-align:center;
-    	margin-bottom: 10px;
+    	margin-bottom: 15px;
     }
     #add-to-menu {
     	margin-top: -10px;

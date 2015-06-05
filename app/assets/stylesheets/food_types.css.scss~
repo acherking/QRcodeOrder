@@ -51,5 +51,10 @@ stylize any heading tags withing white-panel below
   transition: all 0.3s ease-in-out;
 }
 
+.slider-bar{
+        display:block; width:80px; background-color:darkred; position:relative;
+    }
 
-
+    .slider, .slider-bar{
+        height:30px;
+    }

@@ -20,8 +20,15 @@
 }
 
 .dropdown-accordion {
+  .close{
+   
+  }
+  .show-food{
+   
+  }
   #confirm-menu{
     margin-top: 5px;
+    
   }
 }
 

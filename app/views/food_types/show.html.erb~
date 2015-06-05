@@ -1,57 +1,103 @@
+<head>
+<style>
+.divv {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+}
+</style>
+</head>
+<div class="container">
 <% provide(:title, @food_type.name) %>
 
-<p id="notice"><%= notice %></p>
+<% l = @foods.length %>
+<% i = 0 %>
+<% @foods.each do |food| %>
+	
+	<!-- for computer -->
+	<% if i%4 == 0 %>
+		<div class="row hidden-xs">
+	<% end %>
+	
+	<%= link_to  food, remote: true, class: "show-food-modal white-panel col-sm-3" do %>
+		<img src="/images/foods/test.jpg" alt="车酷烧烤">
+		<h4 class="text-center"><%= food.name %> <span class="glyphicon glyphicon-yen" aria-hidden="true"></span><span><%= food.price %></span></h4>
+    <p></p>
+	<% end %>
+	
+	<% if i%4 == 3 %>
+		</div>
+	<% end %>
+	
+	<% i = i + 1 %>
+	<% if i == l %>
+		</div>
+	<% end %>
 
-<div id="u99">
-  <table>
-  	<tbody>
-    	<% @foods.each do |food| %>
-      	<tr>
- 	      <th>
-  		   <div id="u100_img">
- 	     	<%= link_to food, remote: true, class: "show-food" do %>
-  			<%= image_tag("/images/chatacteristic_food/u99.png") %>
-			<div id="u100"><%= food.name %></div>
-			<% end %>
-      		</div>
-          </th>
-      	</tr>
-    	<% end %>
-  	</tbody>
-  </table>
-</div>
+<% end %>
 
-<div id="foodModal" class="modal hide">
+<% i = 0 %>
+<% @foods.each do |food| %>
+
+	<!-- for mobile -->
+	<% if i%3 == 0 %>
+		<div class="row visible-xs-block">
+	<% end %>
+	
+	<%= link_to  food, remote: true, class: "show-food-modal white-panel col-xs-4" do %>
+		<img src="/images/foods/test.jpg" alt="车酷烧烤">
+		<h4 class="text-center"><%= food.name %> <span class="glyphicon glyphicon-yen" aria-hidden="true"></span><span><%= food.price %></span></h4>
+    <p></p>
+	<% end %>
+	
+	<% if i%3 == 2 %>
+		</div>
+	<% end %>
+	
+	<% i = i + 1 %>
+	<% if i == l %>
+		</div>
+	<% end %>
+
+<% end %>
+
+<!-- modal -->
+<div id="foodModal" class="modal fade" ndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+      
       <div class="modal-body">
-        <div class="row-fluid">
-          <div class="span12">
-            <div class="span6">
-              <img src="/images/foods/test.jpg" width="140" height="140" >
-            </div>
-            <div class="span6 show-food-name-price">
-              <h4 id="show-food-name"></h4>
-              <h4 id="show-food-price" ></h4>
-
-              <div class="hide">
-                <p6 id="food-id"></p6>
-                <p6 id="authentication-str">88888888</p6>
-              </div>
-
-              <div class="input-prepend input-append number-spinner">
-                <span class="add-on" data-dir="dwn">-</span>
-                <input class="span3" id="food-number" type="text" value="1">
-                <span class="add-on" data-dir="up">+</span>
-              </div>
-
-              <div>
-                <button id="add-to-menu" class="btn btn-small btn-warning" data-dismiss="modal" type="button">加入菜单</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      	<h3 class="text-center"><span id="show-food-name"></span> <span class="glyphicon glyphicon-yen" aria-hidden="true"></span><span id="show-food-price"></span></h3>
+      	<div class="hide"><p6 id="food-id"></p6></div>
+      	<img src="/images/foods/test.jpg" " alt="车酷烧烤" >      
+      </div>
+      
+      <div class="modal-footer">
+      	<div class="container-fluid">
+      		<div class="row">
+      			<input class="col-sm-2 col-xs-4" id="food-number" type="text" value="5" />
+      			<button id="add-to-menu" class="btn btn-small btn-warning pull-right col-sm-5 col-xs-7 col-sm-offset-1" data-dismiss="modal" type="button">加入菜单</button>
+      			<input id="myRange-desk" onmousemove="rangeDesk()" class="hidden-xs" type="range" name="points" value="5" min="1" max="50">
+      			<input id="myRange-mobile" ontouchmove="rangeMobile()" class="visible-xs-block" type="range" name="points" value="5" min="1" max="30">
+      		</div>
+      	</div>
       </div>
     </div>    
   </div>
 </div>
+
+<hr>
+
+</div> <!-- container -->
+
+
+<script>
+function rangeDesk() {
+    var x = document.getElementById("myRange-desk").value;
+    document.getElementById("food-number").value = x;
+}
+function rangeMobile() {
+    var x = document.getElementById("myRange-mobile").value;
+    document.getElementById("food-number").value = x;
+}
+</script>

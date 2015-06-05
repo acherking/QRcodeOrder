@@ -1,21 +1,6 @@
-// Place all the styles related to the static_pages controller here.
+// Place all the styles related to the tables controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-/* miscellaneous */
-.debug_dump {
-  position:absolute;
-  left:400px;
-  top:50px;
-  width: 60%;
-}
-
-body { padding-top: 70px; }
 
 a:hover {
 color:#4499EE;
@@ -30,15 +15,12 @@ i.icon-2x {
     color:#FFFFFF;
 }
 
-.margin-bottom-10 {
-	margin-bottom: 10px;
-}
-
 /*Colored Content Boxes
 ------------------------------------*/
 .servive-block {
   padding: 5px 0px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .servive-block p,
@@ -113,12 +95,3 @@ i.icon-2x {
   background: #ecf0f1;
 }
 
-/* 在小屏设备上减少padding */
-@media (max-width: 560px) {
-	.less-padding-mobile-560px {
-		padding: 2px 2px !important;
-	}
-	.margin-bottom-10 {
-		margin-bottom: 0px;
-}
-}

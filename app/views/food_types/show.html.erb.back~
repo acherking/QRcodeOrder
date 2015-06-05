@@ -1,0 +1,56 @@
+<% provide(:title, @food_type.name) %>
+
+<p id="notice"><%= notice %></p>
+
+<div id="u99">
+  <table>
+  	<tbody>
+    	<% @foods.each do |food| %>
+      	<tr>
+ 	      <th>
+  		   <div id="u100_img">
+ 	     	<%= link_to food, remote: true, class: "show-food" do %>
+  			<%= image_tag("/images/chatacteristic_food/u99.png") %>
+			<div id="u100"><%= food.name %></div>
+			<% end %>
+      		</div>
+          </th>
+      	</tr>
+    	<% end %>
+  	</tbody>
+  </table>
+</div>
+
+<div id="foodModal" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="span6">
+              <img src="/images/foods/test.jpg" width="140" height="140" >
+            </div>
+            <div class="span6 show-food-name-price">
+              <h4 id="show-food-name"></h4>
+              <h4 id="show-food-price" ></h4>
+
+              <div class="hide">
+                <p6 id="food-id"></p6>
+              </div>
+
+              <div class="input-prepend input-append number-spinner">
+                <span class="add-on" data-dir="dwn">-</span>
+                <input class="span3" id="food-number" type="text" value="1">
+                <span class="add-on" data-dir="up">+</span>
+              </div>
+
+              <div>
+                <button id="add-to-menu" class="btn btn-small btn-warning" data-dismiss="modal" type="button">加入菜单</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
