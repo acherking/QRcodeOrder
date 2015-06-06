@@ -8,9 +8,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Authentication.create(authentication_str: "88888888", table_id: 1)
-Authentication.create(authentication_str: "66666666", table_id: 2)
 Table.create(name: "黑A-88888", authentication_id: 1)
-Table.create(name: "黑A-66666", authentication_id: 2)
+Table.create(name: "黑A-66666", authentication_id: 1)
 
 food_type_list = [
   "车酷特色",

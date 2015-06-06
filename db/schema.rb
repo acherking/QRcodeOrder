@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420112030) do
+ActiveRecord::Schema.define(version: 20150605144338) do
 
   create_table "authentications", force: true do |t|
     t.string   "authentication_str"
@@ -54,9 +54,22 @@ ActiveRecord::Schema.define(version: 20150420112030) do
 
   create_table "tables", force: true do |t|
     t.string   "name"
-    t.boolean  "statu",      default: true
+    t.boolean  "statu",             default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "authentication_id"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.boolean  "admin",           default: false
+    t.boolean  "zhuachuan",       default: false
+    t.boolean  "chuancai",        default: false
+    t.boolean  "huanzhuo",        default: false
+    t.boolean  "maidan",          default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end

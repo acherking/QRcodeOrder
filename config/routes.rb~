@@ -1,7 +1,6 @@
 # -*- encoding : utf-8 -*-
 QRcodeOrder::Application.routes.draw do
-  resources :users
-  
+  get "users/new"
   resources :tables
 
   resources :authentications
