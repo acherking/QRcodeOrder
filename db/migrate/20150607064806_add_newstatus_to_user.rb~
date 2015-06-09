@@ -1,0 +1,7 @@
+class AddNewstatusToUser < ActiveRecord::Migration
+  def change
+    add_column :users, :liangcai, :boolean
+    add_column :users, :jiushui, :boolean
+    add_column :users, :zhuchang, :boolean
+  end
+end

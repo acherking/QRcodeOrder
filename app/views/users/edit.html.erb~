@@ -1,0 +1,9 @@
+<h1>修改成员信息</h1>
+<% provide(:title, '修改') %>
+
+<div class="row">
+  <div class="col-sm-6 col-xs-12">
+  	<%= render 'shared/error_messages.html.erb' %>
+  	<%= render 'user_form.html.erb' %>
+  </div>
+</div>

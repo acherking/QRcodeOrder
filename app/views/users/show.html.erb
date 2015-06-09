@@ -1,1 +1,42 @@
-<%= @user.name %>
+<p>
+  <strong>名称:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>抓串:</strong>
+  <%= @user.zhuachuan %>
+</p>
+
+<p>
+  <strong>传菜:</strong>
+  <%= @user.chuancai %>
+</p>
+
+<p>
+  <strong>换桌:</strong>
+  <%= @user.huanzhuo %>
+</p>
+
+<p>
+  <strong>买单:</strong>
+  <%= @user.maidan %>
+</p>
+
+<p>
+  <strong>凉菜:</strong>
+  <%= @user.liangcai %>
+</p>
+
+<p>
+  <strong>酒水:</strong>
+  <%= @user.jiushui %>
+</p>
+
+<p>
+  <strong>驻唱:</strong>
+  <%= @user.zhuchang %>
+</p>
+
+<%= link_to '编辑', edit_user_path(@user) %> |
+<%= link_to '返回', users_path %>

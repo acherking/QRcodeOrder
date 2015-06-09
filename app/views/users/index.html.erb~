@@ -1,0 +1,48 @@
+<head>
+<style type="text/css">
+thead {color:green}
+tbody {color:red}
+</style>
+</head>
+
+<% provide(:title, '所有成员') %>
+<h1>所有成员</h1>
+
+<table border="3">
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>抓串 </th>
+      <th>传菜</th>
+      <th>换桌</th>
+      <th>买单</th>
+      <th>凉菜</th>
+      <th>酒水</th>
+      <th>驻唱</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.zhuachuan %></td>
+        <td><%= user.chuancai %></td>
+        <td><%= user.huanzhuo %></td>
+        <td><%= user.maidan %></td>
+        <td><%= user.liangcai %></td>
+        <td><%= user.jiushui %></td>
+        <td><%= user.zhuchang %></td>
+        <td><%= link_to '显示', user %></td>
+        <td><%= link_to '编辑', edit_user_path(user) %></td>
+        <td><%= link_to '删除', user, method: :delete, data: { confirm: '是否确定删除？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

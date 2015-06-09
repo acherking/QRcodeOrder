@@ -1,0 +1,55 @@
+<head></head>
+
+<% provide(:title, "前台界面") %>
+<div class="container">
+
+<% l = @tables.length %>
+<% i = 0 %>
+<% @tables.each do |table| %>
+	
+	<!-- for computer -->
+	<% if i%4 == 0 %>
+		<div class="row hidden-xs">
+	<% end %>
+	
+	<div class="<% if table.id==1 %>hide<% end %>">
+	<%= link_to  table, class: "white-panel col-sm-3" do %>
+		<h4 class="text-center"><%= table.name %> <span class="glyphicon glyphicon-glass" aria-hidden="true"></span></h4>
+    <p></p>
+	<% end %>
+	</div>
+	
+	<% if i%4 == 3 %>
+		</div>
+	<% end %>
+	
+	<% i = i + 1 %>
+	<% if i == l %>
+		</div>
+	<% end %>
+
+<% end %>
+
+<% i = 0 %>
+<% @tables.each do |table| %>
+
+	<!-- for mobile -->
+	<% if i%3 == 0 %>
+		<div class="row visible-xs-block">
+	<% end %>
+	
+	<%= link_to  table, class: "white-panel col-xs-4" do %>
+		<h4 class="text-center"><%= table.name %> <span class="glyphicon glyphicon-glass" aria-hidden="true"></span></h4>
+    <p></p>
+	<% end %>
+	
+	<% if i%3 == 2 %>
+		</div>
+	<% end %>
+	
+	<% i = i + 1 %>
+	<% if i == l %>
+		</div>
+	<% end %>
+
+<% end %>

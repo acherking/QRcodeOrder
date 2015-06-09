@@ -10,14 +10,7 @@ class StaticPagesController < ApplicationController
 			end
 		end
 		
-		current_authentication
-		if @current_authentication
-			if !@current_authentication.statu
-				render 'authentication_error'
-			end
-		else
-			render 'authentication_error'
-		end
+		valid_authentication
 
 		@food_types = FoodType.all
   end

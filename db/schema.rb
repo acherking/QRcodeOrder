@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605144338) do
+ActiveRecord::Schema.define(version: 20150607064806) do
 
   create_table "authentications", force: true do |t|
     t.string   "authentication_str"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20150605144338) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "authentications", ["authentication_str"], name: "index_authentications_on_authentication_str", unique: true
 
   create_table "food_types", force: true do |t|
     t.string   "name"
@@ -70,6 +72,12 @@ ActiveRecord::Schema.define(version: 20150605144338) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.string   "remember_token"
+    t.boolean  "liangcai",        default: false
+    t.boolean  "jiushui",         default: false
+    t.boolean  "zhuchang",        default: false
   end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

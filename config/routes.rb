@@ -1,10 +1,16 @@
 # -*- encoding : utf-8 -*-
 QRcodeOrder::Application.routes.draw do
   resources :users
+  match '/signin', to: 'sessions#new',				via: 'get'
+  
+  resources :sessions, only: [:new, :create, :destroy]
   
   resources :tables
 
   resources :authentications
+  match '/update_statu/:id', to: 'authentications#update_statu',				via: 'put'
+  match '/edit_table/:id', to: 'authentications#edit_table',						via: 'get'
+  match '/update_table/:id', to: 'authentications#update_table',				via: 'put'
 
   resources :menus
 

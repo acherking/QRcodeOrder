@@ -1,0 +1,48 @@
+		<%= form_for(@user) do |f| %>
+			
+			<%= render 'shared/error_messages.html.erb' %>
+			
+			<div>
+      <%= f.text_field :name %>
+      <%= f.label :名称 %>
+			</div>
+			
+    	<%= f.check_box :zhuachuan %>
+    	<%= f.label :抓串 %><br>
+    	
+    	<%= f.check_box :chuancai %>
+    	<%= f.label :传菜 %><br>
+    		
+    	<%= f.check_box :huanzhuo %>
+    	<%= f.label :换桌 %><br>
+    	
+    	<%= f.check_box :maidan %>
+    	<%= f.label :买单 %><br>
+    	
+    	<%= f.check_box :maidan %>
+    	<%= f.label :凉菜 %><br>
+    	
+    	<%= f.check_box :maidan %>
+    	<%= f.label :驻唱 %><br>
+    	
+    	<div>
+    	<%= f.check_box :jiushui %>
+    	<%= f.label :酒水 %><br>
+			</div>
+			
+			<div class="row col-sm-12">
+      
+      <%= f.password_field :password %>
+      <%= f.label :password %>
+      </div>
+			
+			<div class="row col-sm-12">
+      
+      <%= f.password_field :password_confirmation %>
+      <%= f.label :password_confirmation, "Confirmation" %>
+      </div>
+    	
+    	<div class="row col-sm-12">
+    	<%= f.submit "确认", class: "btn btn-large btn-primary" %>
+    	</div>
+    <% end %>

@@ -1,0 +1,78 @@
+<head></head>
+<% provide(:title, @table.name) %>
+<% current_authentication %>
+
+<div class="container">
+	<div class="row col-sm-6 col-sm-offset-3 custyle">
+    <table class="table table-striped custab <% if (@current_authentication.table_id == 1) && (@current_table.authentication_id != @current_authentication.id) && @current_authentication.statu %>hide<% end %>">
+    	<% if (@current_authentication.table_id == 1) && (@current_table.authentication_id != @current_authentication.id) && @current_authentication.statu %>
+    	
+    	<% else %>
+    	<h4 class="text-center margin-bottom-less "><%= @table.name %></h4>
+			<% end %>
+			    	
+    	<thead>
+        <tr>
+            <th>ID</th>
+            <th>菜品名称</th>
+            <th>数量</th>
+            <th class="text-center">单价/总价</th>
+        </tr>
+    	</thead>
+            <% if @menus_false.length %>
+							<% i = 0 %>
+							<% k = 1 %>
+							<% add_price = 0 %>
+							<% while i < @menus_false.length do %>
+            		<% j = 0 %>
+								<% while j < @little_menus_false[i].length %>   
+            <tr>
+                <td><%= k %></td>
+                <td><%= @foods.find(@little_menus_false[i][j].food_id).name %></td>
+                <td><%= @little_menus_false[i][j].number %></td>
+                <% price = @little_menus_false[i][j].number * @foods.find(@little_menus_false[i][j].food_id).price %>
+                <% add_price = add_price + price %>
+                <td class="text-center"><%= @foods.find(@little_menus_false[i][j].food_id).price %> / <%= price %></td>
+            </tr>
+            		<% j += 1 %>
+            		<% k += 1 %>
+            		<% end %>
+            	<% i += 1 %>
+            	<% end %>
+            <% end %>
+            <tr>
+            		<td></td>
+            		<td></td>
+            		<td></td>
+            		<td class="text-center"><%= add_price %></td>
+            </tr>
+    </table>
+   </div>
+	<div class="row col-sm-6 col-sm-offset-3 <% if (@current_authentication.table_id == 1) && (@current_table.authentication_id != @current_authentication.id) && @current_authentication.statu %>hide<% end %>">
+		<% if @current_user.admin? || @current_user.huanzhuo? %>
+		<%= link_to '换桌', '/edit_table/'+@authentication.id.to_s, class: "btn btn-default btn-block col-sm-3 col-xs-6"%>
+		<% end %>
+		
+		<% if @current_user.admin? || @current_user.maidan? %>
+		<div>
+			<%= form_for(@authentication, url: '/update_statu/' + @authentication.id.to_s, method: :put) do |f| %>
+				<%= f.hidden_field :statu, value: false%>
+				<%= f.submit("买单", {class: "btn btn-default btn-block col-sm-3 col-xs-6 ", data: { confirm: '确认买单？' }}) %>
+			<% end %>
+		</div>
+		<% end %>
+		
+		<%= link_to '返回', tables_path, class: "btn btn-default btn-block col-sm-3 col-xs-6" %>
+		
+	</div>
+	
+	<% if (@current_authentication.table_id == 1) && (@current_table.authentication_id != @current_authentication.id) && @current_authentication.statu %>
+	<div class="row col-sm-6 col-sm-offset-3">
+		<% if @current_user.admin? || @current_user.huanzhuo? %>
+			<%= link_to '编辑当前认证码桌号', '/edit_table/'+@current_authentication.id.to_s, class: "btn btn-default btn-block col-sm-3 col-xs-6"%>
+		<% else %>
+			<%= render 'static_pages/authentication_error' %>
+		<% end %>
+	</div>
+	<% end %>
+</div>

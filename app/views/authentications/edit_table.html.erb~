@@ -1,0 +1,66 @@
+<head></head>
+<% provide(:title, @table.name+"(换)") %>
+
+<div class="container">
+	<div class="row">
+        <div class="form-group">
+            <div class="col-sm-12 col-xs-12">
+                <input type="search" class="form-control" id="search" placeholder="table id..">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="searchable-container">
+                
+                <% @tables.each do |table| %>
+                <div class="items col-xs-4 col-sm-3">
+                    <div class="info-block block-info clearfix">
+                        <div class="square-box pull-left hidden-xs">
+                            <span class="glyphicon glyphicon-tags glyphicon-lg"></span>
+                        </div>
+                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                            <label class="btn btn-default">
+                                <div class="bizcontent">
+                                    <input type="radio" name="var_id[]" autocomplete="off" value="">
+                                    <span class="glyphicon glyphicon-ok glyphicon-lg "></span>
+                                    <h5 class="text-center"><%= table.name %></h5>
+                                    <input class="table-id hide" type="number" value=<%= table.id %> />
+                                </div>
+                            </label>
+                        </div>
+                    </div>                
+                </div>	
+                <% end %>
+                
+            </div>
+        </div>
+		</div>
+		<div class="row col-sm-6 col-sm-offset-3 margin-top-10">
+			<%= form_for(@authentication, url: '/update_table/' + @authentication.id.to_s, method: :put) do |f| %>
+				<%= f.hidden_field :table_id%>
+				<%= f.submit('确认更换'+'('+@table.name+')', {class: "btn btn-default btn-block col-sm-3 col-xs-6", data: {}}) %>
+			<% end %>
+		</div>
+</div>
+
+<script>
+$(function() {
+    $('#search').on('keyup', function() {
+        var pattern = $(this).val();
+        $('.searchable-container .items').hide();
+        $('.searchable-container .items').filter(function() {
+            return $(this).text().match(new RegExp(pattern, 'i'));
+        }).show();
+    });
+});
+
+//选中的效果转换 确认桌号
+$(function() {
+	$('.items').on('click', function(){
+		$('.searchable-container').find('label').removeClass('active');
+		$(this).find('label').addClass('active');
+		document.getElementById("authentication_table_id").value = $(this).find(".table-id").val();
+	});
+});
+</script>

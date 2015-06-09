@@ -9,8 +9,13 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand visible-xs-block" href="/">117号车酷 | 新A-55379</a>
-			<a class="navbar-brand hidden-xs" href="/">117号车酷酒吧烧烤 | 新A-55379</a>
+			<a class="navbar-brand visible-xs-block" href="/">117号车酷 </a>
+			<a class="navbar-brand hidden-xs" href="/">117号车酷酒吧烧烤 </a>
+			<% if signed_in_auth? %>
+				<a class="navbar-brand" <% if signed_in? %>href="<%= "/tables/" + @current_table.id.to_s %>"<% end %>><%= @current_table.name %><% if @current_authentication.statu==false %>(无效)<% end %></a>
+			<% else %>
+				<a class="navbar-brand" href="/">无验证码</a>
+			<% end %>
 		</div>			
 					
 	
@@ -26,18 +31,32 @@
   	 			</ul>
 			  </li>
 				
-				<li class="dropdown fade">
+				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">歌单 <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Separated link</a></li>
+							<li><a href="#">一生有你</a></li>
+							<li><a href="#">朋友</a></li>
 						</ul>
 				 </li>
-
-				<li><a href="#">管理员入口</a></li>
+				
+				<% if signed_in? %>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">管理员入口 <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<% if @current_user.admin? || @current_user.huanzhuo? %><li><a href="/tables">前台</a></li><% end %>
+								<% if @current_user.admin? %><li><a href="/users/new">创建新成员</a></li><% end %>
+								<% if @current_user.admin? %><li><a href="/users">显示所有成员</a></li><% end %>
+								<% if @current_user.zhuachuan? %><li><a href="#">抓串</a></li><% end %>
+								<% if @current_user.liangcai? %><li><a href="#">凉菜</a></li><% end %>
+								<% if @current_user.jiushui %><li><a href="#">酒水</a></li><% end %>
+								<% if @current_user.chuancai %><li><a href="#">传菜</a></li><% end %>
+								<% if @current_user.zhuchang %><li><a href="#">驻唱</a></li><% end %>
+								<li><%= link_to '退出登录', '/sessions/destroy', method: :delete %></li>
+							</ul>
+					</li>
+				<% else %>
+					<li><a href="/signin">管理员登录</a></li>
+				<% end %>
 			</ul>
 			
 		</div><!-- /.nav-collapse -->

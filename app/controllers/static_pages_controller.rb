@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
    	authentication = Authentication.find_by(authentication_str: authentication_str)
 		if authentication
 			if authentication.statu
-				sign_in(authentication)
+				sign_in_auth(authentication)
 			end
 		end
 		

@@ -7,19 +7,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* miscellaneous */
-.debug_dump {
-  position:absolute;
-  left:400px;
-  top:50px;
-  width: 60%;
-}
-
 body { padding-top: 70px; }
 
 a:hover {
-color:#4499EE;
-text-decoration:none; /*CSS下划线效果：无下划线*/
+	color:#4499EE;
+	text-decoration:none; /*CSS下划线效果：无下划线*/
 }
 
 i.icon-2x {
@@ -120,5 +112,8 @@ i.icon-2x {
 	}
 	.margin-bottom-10 {
 		margin-bottom: 0px;
+}
+	.navbar a {
+		padding: 13px 5px 5px 10px;
 }
 }
