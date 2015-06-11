@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 QRcodeOrder::Application.routes.draw do
+  resources :branches
+
   resources :users
   match '/signin', to: 'sessions#new',				via: 'get'
   
@@ -15,6 +17,10 @@ QRcodeOrder::Application.routes.draw do
   resources :menus
 
   resources :little_menus
+  match '/branch_little_menus/:id', 					to: 'little_menus#branch_little_menus',						via: 'get'
+  match '/chuancai_index', 										to: 'little_menus#chuancai_index',								via: 'get'
+	match '/update_little_menus_zhunbei/:id', 	to: 'little_menus#update_zhunbei',								via: 'put'
+	match '/update_little_menus_chuancai/:id',  to: 'little_menus#update_chuancai',								via: 'put'
 
   resources :foods
 

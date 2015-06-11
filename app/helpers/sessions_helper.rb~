@@ -36,7 +36,7 @@ module SessionsHelper
   end
   
   def admin_or_zhuachuan_user
-  	redirect_to(root_path) unless current_user.admin? || current_user.zhuachuan?
+  	redirect_to(root_path) and return unless current_user.admin? || current_user.zhuachuan?
   end
   
   def admin_or_chuancai_user
@@ -51,15 +51,15 @@ module SessionsHelper
   	redirect_to(root_path) unless current_user.admin? || current_user.maidan?
   end
   
-  def admin_or_zhuachuan_user
-  	redirect_to(root_path) unless current_user.admin? || current_user.zhuachuan?
+  def admin_or_liangcai_user
+  	redirect_to(root_path) unless current_user.admin? || current_user.liangcai?
   end
   
-  def admin_or_zhuachuan_user
-  	redirect_to(root_path) unless current_user.admin? || current_user.zhuachuan?
+  def admin_or_jiushui_user
+  	redirect_to(root_path) unless current_user.admin? || current_user.jiushui?
   end
   
-  def admin_or_zhuachuan_user
+  def admin_or_zhuchang_user
   	redirect_to(root_path) unless current_user.admin? || current_user.zhuachuan?
   end
 end

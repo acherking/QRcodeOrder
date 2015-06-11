@@ -32,6 +32,10 @@ User.first.toggle!(:admin)
 User.create(name: "admin2", password: "199285", password_confirmation: "199285")
 User.last.toggle!(:admin)
 
+Branch.create(name: "吧台")
+Branch.create(name: "后厨")
+Branch.create(name: "凉菜部")
+
 food_type_list = [
   "车酷特色",
   "经典烧烤系列",
@@ -159,33 +163,33 @@ food_type_8_list = [
 ]
 
 food_type_1_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_2_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_3_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 3)
 end
 
 food_type_4_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_5_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_6_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_7_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_8_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 1)
 end

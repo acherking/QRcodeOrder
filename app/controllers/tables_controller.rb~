@@ -13,7 +13,7 @@ class TablesController < ApplicationController
   def show
   	@authentication = Authentication.find_by(id: @table.authentication_id)
   	if @authentication.statu == false
-  		flash[:error] = "无效的认证码"
+  		flash[:error] = "无效的认证码！"
   		redirect_to tables_path
   	end
   	@menus = @authentication.menus.order(:updated_at)

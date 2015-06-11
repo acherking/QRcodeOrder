@@ -1,0 +1,30 @@
+<head></head>
+
+<div class="container">
+    <div class="row">
+        
+        <% @branch_little_menus_zhunbei_false.each do |little_menu| %>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="text-center"><%= @branch.name %></h4>
+                </div>
+                <div class="panel-body text-center">
+                	<strong><%= Food.find(little_menu.food_id).name %> / <%= little_menu.number %></strong>
+                </div>
+                <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i>桌号： <%= Table.find(Authentication.find(Menu.find(little_menu.menu_id).authentication_id).table_id).name %></li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i>时间： <%= little_menu.updated_at.to_time %></li>
+                </ul>
+                <div class="panel-footer">
+                	<%= form_for(little_menu, url: '/update_little_menus_zhunbei/'+little_menu.id.to_s, method: :put) do |f| %>
+										<%= f.submit("确认准备", {class: "btn btn-lg btn-block btn-info", data: { confirm: '确认准备？' }}) %>
+									<% end %>
+                </div>
+            </div>
+        </div>
+        <% end %>        
+        
+    </div>
+</div>
+

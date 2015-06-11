@@ -1,0 +1,68 @@
+<% provide(:title, "传菜") %>
+<head>
+</head>
+
+<div class="container">
+    <div class="row">
+        
+        <div class="row">
+              <button href="#"  class="btn btn-xlarge" /><i class="fa fa-clock-o fa-5x" ></i></button>
+              <button href="#"  class="btn btn-xlarge" /><i class="fa fa-chevron-up fa-5x" ></i></button>
+    </div>
+
+<button type="button" class="btn btn-default btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
+<button type="button" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-list"></i></button>
+<button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-link"></i></button>
+<button type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
+<button type="button" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-remove"></i></button>
+<button type="button" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-heart"></i></button>
+
+<h2>lg</h2>
+<button type="button" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
+<button type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-list"></i></button>
+<button type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-link"></i></button>
+<button type="button" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
+<button type="button" class="btn btn-warning btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i></button>
+<button type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-heart"></i></button>
+
+<h2>xl</h2>
+<button type="button" class="btn btn-default btn-circle btn-xl"><i class="glyphicon glyphicon-ok"></i></button>
+<button type="button" class="btn btn-primary btn-circle btn-xl"><i class="glyphicon glyphicon-list"></i></button>
+<button type="button" class="btn btn-success btn-circle btn-xl"><i class="glyphicon glyphicon-link"></i></button>
+<button type="button" class="btn btn-info btn-circle btn-xl"><i class="glyphicon glyphicon-ok"></i></button>
+<button type="button" class="btn btn-warning btn-circle btn-xl"><i class="glyphicon glyphicon-remove"></i></button>
+<button type="button" class="btn btn-danger btn-circle btn-xl"><i class="glyphicon glyphicon-heart"></i></button>
+
+
+        
+        <% @little_menus_zhunbei_true_chuancai_false.each do |little_menu| %>
+        	<% @branch = Branch.find(Food.find(little_menu.food_id).branch_id) %>
+        <div class="col-md-3">
+            <div class="panel <% if @branch.id == 1 %>panel-info<% elsif @branch.id == 3%>panel-success<% else %>panel-warning<%end%>">
+                <div class="panel-heading">
+                    <h4 class="text-center"><%= @branch.name %></h4>
+                </div>
+                <div class="panel-body text-center">
+                	<strong><%= Food.find(little_menu.food_id).name %> / <%= little_menu.number %></strong>
+                </div>
+                <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i>桌号： <%= Table.find(Authentication.find(Menu.find(little_menu.menu_id).authentication_id).table_id).name %></li>
+                    <li class="list-group-item"><i class="icon-ok text-danger"></i>时间： <%= little_menu.updated_at.to_time %></li>
+                </ul>
+                <div class="panel-footer">
+                	<%= form_for(little_menu, url: '/update_little_menus_chuancai/'+little_menu.id.to_s, method: :put) do |f| %>
+                		<% if @branch.id == 1%>
+											<%= f.submit("确认已传递", {class: "btn btn-lg btn-block btn-info", data: { confirm: '确认已经传递？' }}) %>
+										<% elsif @branch.id == 3 %>
+											<%= f.submit("确认已传递", {class: "btn btn-lg btn-block btn-success", data: { confirm: '确认已经传递？' }}) %>
+										<% else %>
+											<%= f.submit("确认已传递", {class: "btn btn-lg btn-block btn-warning", data: { confirm: '确认已经传递？' }}) %>
+										<% end %>
+									<% end %>
+                </div>
+            </div>
+        </div>
+        <% end %>        
+        
+    </div>
+</div>

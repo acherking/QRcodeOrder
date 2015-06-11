@@ -46,6 +46,6 @@ class UsersController < ApplicationController
 private
 
 	def user_params
-  	params.require(:user).permit(:name, :zhuachuan, :chuancai, :huanzhuo, :maidan,  :password, :password_confirmation)
+  	params.require(:user).permit(:name, :zhuachuan, :chuancai, :huanzhuo, :maidan, :liangcai, :jiushui, :zhuchang, :password, :password_confirmation)
   end
 end

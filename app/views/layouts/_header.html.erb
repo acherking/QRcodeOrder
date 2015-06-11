@@ -31,7 +31,7 @@
   	 			</ul>
 			  </li>
 				
-				<li class="dropdown">
+				<li class="dropdown hide">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">歌单 <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="#">一生有你</a></li>
@@ -43,14 +43,14 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">管理员入口 <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<% if @current_user.admin? || @current_user.huanzhuo? %><li><a href="/tables">前台</a></li><% end %>
+								<% if @current_user.admin? || @current_user.huanzhuo?|| @current_user.maidan? %><li><a href="/tables">前台</a></li><% end %>
+								<% if @current_user.admin? || @current_user.zhuachuan? %><li><a href="/branch_little_menus/2">抓串</a></li><% end %>
+								<% if @current_user.admin? || @current_user.liangcai? %><li><a href="/branch_little_menus/3">凉菜</a></li><% end %>
+								<% if @current_user.admin? || @current_user.jiushui %><li><a href="/branch_little_menus/1">酒水</a></li><% end %>
+								<% if @current_user.admin? || @current_user.chuancai %><li><a href="/chuancai_index">传菜</a></li><% end %>
+								<% if @current_user.zhuchang %><li><a href="#">驻唱</a></li><% end %>
 								<% if @current_user.admin? %><li><a href="/users/new">创建新成员</a></li><% end %>
 								<% if @current_user.admin? %><li><a href="/users">显示所有成员</a></li><% end %>
-								<% if @current_user.zhuachuan? %><li><a href="#">抓串</a></li><% end %>
-								<% if @current_user.liangcai? %><li><a href="#">凉菜</a></li><% end %>
-								<% if @current_user.jiushui %><li><a href="#">酒水</a></li><% end %>
-								<% if @current_user.chuancai %><li><a href="#">传菜</a></li><% end %>
-								<% if @current_user.zhuchang %><li><a href="#">驻唱</a></li><% end %>
 								<li><%= link_to '退出登录', '/sessions/destroy', method: :delete %></li>
 							</ul>
 					</li>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607064806) do
+ActiveRecord::Schema.define(version: 20150609162439) do
 
   create_table "authentications", force: true do |t|
     t.string   "authentication_str"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20150607064806) do
   end
 
   add_index "authentications", ["authentication_str"], name: "index_authentications_on_authentication_str", unique: true
+
+  create_table "branches", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "food_types", force: true do |t|
     t.string   "name"
@@ -36,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150607064806) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "status",       default: true
+    t.integer  "branch_id"
   end
 
   create_table "little_menus", force: true do |t|
@@ -45,6 +52,8 @@ ActiveRecord::Schema.define(version: 20150607064806) do
     t.string   "remark",     default: "None"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "zhunbei",    default: false
+    t.boolean  "chuancai",   default: false
   end
 
   create_table "menus", force: true do |t|

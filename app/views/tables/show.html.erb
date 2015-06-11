@@ -1,6 +1,8 @@
 <head></head>
 <% provide(:title, @table.name) %>
 <% current_authentication %>
+<% @current_authentication ||= Authentication.find(1) %>
+<% @current_table ||= Table.find(1) %>
 
 <div class="container">
 	<div class="row col-sm-6 col-sm-offset-3 custyle">

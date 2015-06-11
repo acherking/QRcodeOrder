@@ -5,7 +5,7 @@ class TablesController < ApplicationController
   # GET /tables
   # GET /tables.json
   def index
-		@tables = Table.where(statu:false).limit(60)
+		@tables = Table.where(statu:false, id:2..100).limit(60)
   end
 
   # GET /tables/1

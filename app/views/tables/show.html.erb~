@@ -1,14 +1,16 @@
 <head></head>
 <% provide(:title, @table.name) %>
 <% current_authentication %>
+<% @current_authentication ||= Authentication.find(1) %>
+<% @current_table ||= Table.find(1) %>
 
 <div class="container">
 	<div class="row col-sm-6 col-sm-offset-3 custyle">
     <table class="table table-striped custab <% if (@current_authentication.table_id == 1) && (@current_table.authentication_id != @current_authentication.id) && @current_authentication.statu %>hide<% end %>">
     	<% if (@current_authentication.table_id == 1) && (@current_table.authentication_id != @current_authentication.id) && @current_authentication.statu %>
-    	
+    		<h4 class="text-center margin-bottom-less ">吧台</h4>
     	<% else %>
-    	<h4 class="text-center margin-bottom-less "><%= @table.name %></h4>
+    		<h4 class="text-center margin-bottom-less "><%= @table.name %></h4>
 			<% end %>
 			    	
     	<thead>

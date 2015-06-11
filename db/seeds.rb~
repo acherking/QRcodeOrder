@@ -18,23 +18,23 @@ Authentication.create(authentication_str: "77777777", table_id: 1)
 Authentication.create(authentication_str: "88888888", table_id: 1)
 Authentication.create(authentication_str: "99999999", table_id: 1)
 Table.create(name: "吧台", authentication_id: 1, statu:false)
-Table.create(name: "黑A-88888", authentication_id: 2, statu:false)
-Table.create(name: "黑A-66666", authentication_id: 3, statu:false)
-Table.create(name: "吧台", authentication_id: 1, statu:false)
-Table.create(name: "黑A-88888", authentication_id: 2, statu:false)
-Table.create(name: "黑A-66666", authentication_id: 3, statu:false)
-Table.create(name: "吧台", authentication_id: 1, statu:false)
-Table.create(name: "黑A-88888", authentication_id: 2, statu:false)
-Table.create(name: "黑A-66666", authentication_id: 3, statu:false)
-Table.create(name: "吧台", authentication_id: 1, statu:false)
-Table.create(name: "黑A-88888", authentication_id: 2, statu:false)
-Table.create(name: "黑A-66666", authentication_id: 3, statu:false)
-Table.create(name: "黑A-1234", authentication_id: 1, statu:true)
-Table.create(name: "黑A-5678", authentication_id: 1, statu:true)
+Table.create(name: "黑A-11111", authentication_id: 2, statu:false)
+Table.create(name: "黑A-22222", authentication_id: 3, statu:false)
+Table.create(name: "黑A-33333", authentication_id: 4, statu:false)
+Table.create(name: "黑A-44444", authentication_id: 5, statu:false)
+Table.create(name: "黑A-55555", authentication_id: 6, statu:false)
+Table.create(name: "黑A-66666", authentication_id: 1, statu:true)
+Table.create(name: "黑A-77777", authentication_id: 1, statu:true)
+Table.create(name: "黑A-88888", authentication_id: 1, statu:true)
+Table.create(name: "黑A-99999", authentication_id: 1, statu:true)
 User.create(name: "admin1", password: "199285", password_confirmation: "199285")
 User.first.toggle!(:admin)
 User.create(name: "admin2", password: "199285", password_confirmation: "199285")
 User.last.toggle!(:admin)
+
+Branch.create(name: "吧台")
+Branch.create(name: "后厨")
+Branch.create(name: "凉菜部")
 
 food_type_list = [
   "车酷特色",
@@ -163,7 +163,7 @@ food_type_8_list = [
 ]
 
 food_type_1_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_2_list.each do |food_type_id, name, price|
@@ -171,7 +171,7 @@ food_type_2_list.each do |food_type_id, name, price|
 end
 
 food_type_3_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 3)
 end
 
 food_type_4_list.each do |food_type_id, name, price|
@@ -191,5 +191,5 @@ food_type_7_list.each do |food_type_id, name, price|
 end
 
 food_type_8_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 1)
 end
