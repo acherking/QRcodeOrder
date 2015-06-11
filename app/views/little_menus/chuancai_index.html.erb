@@ -2,37 +2,17 @@
 <head>
 </head>
 
-<div class="container">
-    <div class="row">
+<button id="shuaxin" type="button" class="btn btn-default btn-circle btn-xl"><i class="glyphicon glyphicon-repeat"></i></button>
+<button id="kaochuan" type="button" class="btn btn-warning btn-circle btn-lg"></button>
+<button id="jiushui" type="button" class="btn btn-info btn-circle btn-lg"></button>
+<button id="liangcai" type="button" class="btn btn-success btn-circle btn-lg"></button>
 
-<button type="button" class="btn btn-default btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
-<button type="button" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-list"></i></button>
-<button type="button" class="btn btn-success btn-circle"><i class="glyphicon glyphicon-link"></i></button>
-<button type="button" class="btn btn-info btn-circle"><i class="glyphicon glyphicon-ok"></i></button>
-<button type="button" class="btn btn-warning btn-circle"><i class="glyphicon glyphicon-remove"></i></button>
-<button type="button" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-heart"></i></button>
-
-<h2>lg</h2>
-<button type="button" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
-<button type="button" class="btn btn-primary btn-circle btn-lg"><i class="glyphicon glyphicon-list"></i></button>
-<button type="button" class="btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-link"></i></button>
-<button type="button" class="btn btn-info btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></button>
-<button type="button" class="btn btn-warning btn-circle btn-lg"><i class="glyphicon glyphicon-remove"></i></button>
-<button type="button" class="btn btn-danger btn-circle btn-lg"><i class="glyphicon glyphicon-heart"></i></button>
-
-<h2>xl</h2>
-<button type="button" class="btn btn-default btn-circle btn-xl"><i class="glyphicon glyphicon-ok"></i></button>
-<button type="button" class="btn btn-primary btn-circle btn-xl"><i class="glyphicon glyphicon-list"></i></button>
-<button type="button" class="btn btn-success btn-circle btn-xl"><i class="glyphicon glyphicon-link"></i></button>
-<button type="button" class="btn btn-info btn-circle btn-xl"><i class="glyphicon glyphicon-ok"></i></button>
-<button type="button" class="btn btn-warning btn-circle btn-xl"><i class="glyphicon glyphicon-remove"></i></button>
-<button type="button" class="btn btn-danger btn-circle btn-xl"><i class="glyphicon glyphicon-heart"></i></button>
-
-
-        
+<div class="container container-little-menus">
+    <div class="row">   
+      
         <% @little_menus_zhunbei_true_chuancai_false.each do |little_menu| %>
         	<% @branch = Branch.find(Food.find(little_menu.food_id).branch_id) %>
-        <div class="col-md-3">
+        <div class="col-md-3 <% if @branch.id == 1 %>little-menu-jiushui<% elsif @branch.id == 3%>little-menu-liangcai<% else %>little-menu-kaochuan<%end%>">
             <div class="panel <% if @branch.id == 1 %>panel-info<% elsif @branch.id == 3%>panel-success<% else %>panel-warning<%end%>">
                 <div class="panel-heading">
                     <h4 class="text-center"><%= @branch.name %></h4>
@@ -61,3 +41,61 @@
         
     </div>
 </div>
+
+<script>
+showlittlemenus(getCookie('branch'));
+
+function chuancai() {
+	var branch = getCookie('branch');
+  var chuancainum = $('.container-little-menus').find('.little-menu-'+branch);
+  
+  if(chuancainum.length < 5 && branch != "")
+    window.location.reload(true);
+  else 
+  	setTimeout(chuancai, 30000);
+}
+	
+	setTimeout(chuancai, 30000);
+
+function setCookie(cname,cvalue,exdays)
+{
+var d = new Date();
+d.setTime(d.getTime()+(exdays*24*60*60*1000));
+var expires = "expires="+d.toGMTString();
+document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname)
+{
+var name = cname + "=";
+var ca = document.cookie.split(';');
+for(var i=0; i<ca.length; i++) 
+  {
+  var c = ca[i].trim();
+  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+}
+return "";
+}
+
+function showlittlemenus(branch) {
+	if (branch=='jiushui' || branch=='liangcai' || branch=='kaochuan')	{
+		$('.container-little-menus').find('.little-menu-jiushui').addClass('hide');
+		$('.container-little-menus').find('.little-menu-liangcai').addClass('hide');
+		$('.container-little-menus').find('.little-menu-kaochuan').addClass('hide');
+		$('.container-little-menus').find('.little-menu-' + branch).removeClass('hide');
+		setCookie('branch', branch, 30);}
+}
+
+$('#kaochuan').on('click', function (event){
+	showlittlemenus('kaochuan');
+})
+
+$('#jiushui').on('click', function (event){
+	showlittlemenus('jiushui');
+})
+
+$('#liangcai').on('click', function (event){
+	showlittlemenus('liangcai');
+})
+
+</script>

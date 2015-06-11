@@ -13,3 +13,11 @@ $ ->
           error:(data) ->
             return false
       })
+
+# 刷新
+$ ->
+  $('#shuaxin').on 'click', (event) ->
+    location.reload()
+    return
+  return
+
