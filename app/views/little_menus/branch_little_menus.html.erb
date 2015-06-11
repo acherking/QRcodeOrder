@@ -1,11 +1,13 @@
 <% provide(:title, @branch.name+"准备") %>
 <head></head>
 
-<div class="container">
+<button id="shuaxin" type="button" class="btn btn-default btn-circle btn-xl"><i class="glyphicon glyphicon-repeat"></i></button>
+
+<div class="container container-little-menus">
     <div class="row">
         
         <% @branch_little_menus_zhunbei_false.each do |little_menu| %>
-        <div class="col-md-3">
+        <div class="col-md-3 little-menu-zhunbei">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="text-center"><%= @branch.name %></h4>
@@ -29,3 +31,15 @@
     </div>
 </div>
 
+<script>
+	function zhunbeinum() {
+  var zhunbei = $('.container-little-menus').find('.little-menu-zhunbei');
+  
+  if(zhunbei.length < 5) 
+    window.location.reload(true);
+  else 
+  setTimeout(zhunbeinum, 30000);
+  }
+	
+	setTimeout(zhunbeinum, 30000);
+</script>

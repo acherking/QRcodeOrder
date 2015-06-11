@@ -27,10 +27,24 @@ Table.create(name: "黑A-66666", authentication_id: 1, statu:true)
 Table.create(name: "黑A-77777", authentication_id: 1, statu:true)
 Table.create(name: "黑A-88888", authentication_id: 1, statu:true)
 Table.create(name: "黑A-99999", authentication_id: 1, statu:true)
+
 User.create(name: "admin1", password: "199285", password_confirmation: "199285")
 User.first.toggle!(:admin)
 User.create(name: "admin2", password: "199285", password_confirmation: "199285")
 User.last.toggle!(:admin)
+User.create(name: "liangcai1", liangcai: true, password: "199285", password_confirmation: "888888")
+User.create(name: "liangcai2", liangcai: true, password: "199285", password_confirmation: "888888")
+User.create(name: "bayuan1", jiushui: true, password: "199285", password_confirmation: "888888")
+User.create(name: "bayuan2", jiushui: true, password: "199285", password_confirmation: "888888")
+User.create(name: "shouyin1", maidan: true, password: "199285", password_confirmation: "888888")
+User.create(name: "shouyin2", maidan: true, password: "199285", password_confirmation: "888888")
+User.create(name: "zhuachuan1", zhuachuan: true, password: "199285", password_confirmation: "888888")
+User.create(name: "zhuachuan2", zhuachuan: true, password: "199285", password_confirmation: "888888")
+User.create(name: "waiter1", chuancai: true, huanzhuo: true, password: "199285", password_confirmation: "888888")
+User.create(name: "waiter2", chuancai: true, huanzhuo: true, password: "199285", password_confirmation: "888888")
+User.create(name: "chuancai1", chuancai: true, password: "199285", password_confirmation: "888888")
+User.create(name: "chuancai2", chuancai: true, password: "199285", password_confirmation: "888888")
+
 
 Branch.create(name: "吧台")
 Branch.create(name: "后厨")
@@ -167,7 +181,7 @@ food_type_1_list.each do |food_type_id, name, price|
 end
 
 food_type_2_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_3_list.each do |food_type_id, name, price|
@@ -175,19 +189,19 @@ food_type_3_list.each do |food_type_id, name, price|
 end
 
 food_type_4_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_5_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_6_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_7_list.each do |food_type_id, name, price|
-  Food.create(food_type_id: food_type_id, name: name, price: price)
+  Food.create(food_type_id: food_type_id, name: name, price: price, branch_id: 2)
 end
 
 food_type_8_list.each do |food_type_id, name, price|
