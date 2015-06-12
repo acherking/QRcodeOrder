@@ -88,7 +88,7 @@ class AuthenticationsController < ApplicationController
   	@table_new = Table.find_by(id: params[:authentication][:table_id])
   	respond_to do |format|
 			if @table_old.id == 1 # ba tai
-				if @authentication.statu
+				if @authentication.statu && @authenticaton.id != 1
 					if @authentication.update(authentication_params) && @table_new.update(statu: false, authentication_id: @authentication.id)
 						
 						format.html { redirect_to @table_new, notice: '换桌成功！'+@table_old.name+'-->>'+@table_new.name }
