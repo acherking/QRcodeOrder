@@ -30,7 +30,7 @@ class AuthenticationsController < ApplicationController
 
     respond_to do |format|
       if @authentication.save
-        format.html { redirect_to @authentication, notice: 'Authentication was successfully created.' }
+        format.html { redirect_to @authentication, :flash => { :success => '认证码创建成功！' } }
         format.json { render action: 'show', status: :created, location: @authentication }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class AuthenticationsController < ApplicationController
   def update
     respond_to do |format|
       if @authentication.update(authentication_params)
-        format.html { redirect_to @authentication, notice: 'Authentication was successfully updated.' }
+        format.html { redirect_to @authentication, :flash => { :success => '认证码更新成功！' } }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -60,14 +60,14 @@ class AuthenticationsController < ApplicationController
   	respond_to do |format|
   		if @authentication.statu
       	if @authentication.update(statu: false) && @table.update(statu: true, authentication_id: 1)
-        	format.html { redirect_to tables_path, notice: '买单成功！' }
+        	format.html { redirect_to tables_path, :flash => { :success => '买单成功！' } }
         	format.json { head :no_content }
       	else
-        	format.html { redirect_to Table.find_by(id: @authentication.table_id), notice: '买单失败！' }
+        	format.html { redirect_to Table.find_by(id: @authentication.table_id), :flash => { :danger => '买单失败！' } }
         	format.json { render json: @authentication.errors, status: :unprocessable_entity }
       	end
     	else
-    		format.html { redirect_to @table, notice: '无效的认证码！' }
+    		format.html { redirect_to @table, :flash => { :danger => '无效的认证码！' } }
 				format.json { render json: @authentication.errors, status: :unprocessable_entity }
     	end
     end
@@ -91,28 +91,28 @@ class AuthenticationsController < ApplicationController
 				if @authentication.statu && @authentication.id != 1
 					if @authentication.update(authentication_params) && @table_new.update(statu: false, authentication_id: @authentication.id)
 						
-						format.html { redirect_to @table_new, notice: '换桌成功！'+@table_old.name+'-->>'+@table_new.name }
+						format.html { redirect_to @table_new, :flash => {:success => '初始换桌成功！'+@table_old.name+'-->>'+@table_new.name}  }
 						format.json { head :no_content }
 					else
-						format.html { redirect_to @table_old, notice: '换桌失败！' }
+						format.html { redirect_to @table_old, :flash => { :danger => '换桌失败！' }}
 						format.json { render json: @authentication.errors, status: :unprocessable_entity }
 					end	
 				else
-					format.html { redirect_to @table_old, notice: '无效的认证码！' }
+					format.html { redirect_to @table_old, :flash => { :danger => '无效的认证码！' } }
 					format.json { render json: @authentication.errors, status: :unprocessable_entity }
 				end
 			else
 				if @authentication.statu
 					if @authentication.update(authentication_params) && @table_new.update(statu: false, authentication_id: @authentication.id) && @table_old.update(statu: true, authentication_id: 1)
 						
-						format.html { redirect_to @table_new, notice: '换桌成功！'+@table_old.name+'-->>'+@table_new.name }
+						format.html { redirect_to @table_new, :flash => {:success => '换桌成功！'+@table_old.name+'-->>'+@table_new.name }}
 						format.json { head :no_content }
 					else
-						format.html { redirect_to @table_old, notice: '换桌失败！' }
+						format.html { redirect_to @table_old, :flash => { :danger => '换桌失败！' } }
 						format.json { render json: @authentication.errors, status: :unprocessable_entity }
 					end	
 				else
-					format.html { redirect_to @table_old, notice: '无效的认证码！' }
+					format.html { redirect_to @table_old, :flash => { :danger => '无效的认证码！' }}
 					format.json { render json: @authentication.errors, status: :unprocessable_entity }
 				end
 			end

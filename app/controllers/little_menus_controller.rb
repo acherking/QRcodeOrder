@@ -81,15 +81,21 @@ class LittleMenusController < ApplicationController
 					redirect_to root_path and return
 				end
 			else
-				flash[:error] = "无法准备该小单，没有对应的部门！"
+				flash[:danger] = "无法准备该小单，没有对应的部门！"
 				redirect_to root_path and return
 		end
 		
-		if @little_menu.update(zhunbei:true)
-      redirect_to '/branch_little_menus/'+branch.to_s
-    else
-    	flash[:error] = "准备失败！"
-      redirect_to '/branch_little_menus/'+branch.to_s
+		if @little_menu.zhunbei
+			flash[:danger] = "准备失败！小单已准备！"
+			redirect_to '/branch_little_menus/'+branch.to_s
+		else
+			if @little_menu.update(zhunbei:true)
+				flash[:success] = "准备成功！"
+      	redirect_to '/branch_little_menus/'+branch.to_s
+    	else
+    		flash[:danger] = "准备失败！"
+      	redirect_to '/branch_little_menus/'+branch.to_s
+    	end
     end
 		
 	end
@@ -102,11 +108,17 @@ class LittleMenusController < ApplicationController
 			redirect_to root_path and return
 		end
 		
-		if @little_menu.update(chuancai:true)
-      redirect_to '/chuancai_index'
-    else
-    	flash[:error] = "准备失败！"
-      redirect_to '/chuancai_index'
+		if @little_menu.chuancai
+			flash[:danger] = "确认传菜失败！小单已传递！"
+			redirect_to '/chuancai_index'
+		else
+			if @little_menu.update(chuancai:true)
+				flash[:success] = "确认传菜成功！"
+      	redirect_to '/chuancai_index'
+    	else
+    		flash[:danger] = "确认传菜失败！"
+      	redirect_to '/chuancai_index'
+    	end
     end
 	
 	end
